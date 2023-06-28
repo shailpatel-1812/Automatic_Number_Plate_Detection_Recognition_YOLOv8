@@ -73,6 +73,7 @@ class DetectionPredictor(BasePredictor):
                 label = None if self.args.hide_labels else (
                     self.model.names[c] if self.args.hide_conf else f'{self.model.names[c]} {conf:.2f}')
                 self.annotator.box_label(xyxy, label, color=colors(c, True))
+                print("The label is : ", label)
             if self.args.save_crop:
                 imc = im0.copy()
                 save_one_box(xyxy,
